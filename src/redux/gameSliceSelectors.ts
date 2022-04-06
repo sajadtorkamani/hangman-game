@@ -11,3 +11,9 @@ export const selectMask = (state: RootState): string[] => {
 
   return mask
 }
+
+export const selectHasGuessedWord = (state: RootState): boolean => {
+  const { guessWord, correctGuesses} = state.game
+
+  return correctGuesses.length === guessWord.length
+}

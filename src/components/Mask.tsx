@@ -7,8 +7,10 @@ const Mask: React.FC = () => {
 
   return (
     <div className="mb-8 flex justify-center">
-      {mask.map((letterOrMask) => (
-        <div className="text-[34px] mx-2">{letterOrMask}</div>
+      {mask.map((letterOrMask, index) => (
+        <div key={index} className="text-[34px] mx-2">
+          {letterOrMask}
+        </div>
       ))}
     </div>
   )

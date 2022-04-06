@@ -1,11 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { getRandomGuessWord } from '../utils'
 
-/**
- * -------------------------------------------------------
- * Create state slice
- * -------------------------------------------------------
- */
 export interface GameState {
   guessWord: string
   correctGuesses: string[]
@@ -23,10 +18,17 @@ export const gameSlice = createSlice({
   initialState,
   reducers: {
     makeGuess: (state, action: PayloadAction<string>) => {
+      const { guessWord } = state
       const guessedLetter = action.payload
 
-      if (state.guessWord.includes(guessedLetter)) {
-        state.correctGuesses.push(guessedLetter)
+      if (guessWord.includes(guessedLetter)) {
+        const numOccurrences = (
+          guessWord.match(new RegExp(guessedLetter, 'gi')) || []
+        ).length
+
+        state.correctGuesses.push(
+          ...new Array(numOccurrences).fill(guessedLetter)
+        )
       } else {
         state.incorrectGuesses.push(guessedLetter)
       }
