@@ -1,3 +1,4 @@
+import { createSelector } from 'reselect'
 import { RootState } from './store'
 
 export const selectGuessWord = (state: RootState) => state.game.guessWord
@@ -13,7 +14,13 @@ export const selectMask = (state: RootState): string[] => {
 }
 
 export const selectHasGuessedWord = (state: RootState): boolean => {
-  const { guessWord, correctGuesses} = state.game
+  const { guessWord, correctGuesses } = state.game
 
   return correctGuesses.length === guessWord.length
+}
+
+export const selectLettersGuessed = (state: RootState): string[] => {
+  const { correctGuesses, incorrectGuesses } = state.game
+
+  return [...correctGuesses, ...incorrectGuesses]
 }

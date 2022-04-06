@@ -1,24 +1,31 @@
 import React from 'react'
 import { makeGuess } from '../redux/gameSlice'
-import { useAppDispatch } from '../redux/hooks'
+import { selectLettersGuessed } from '../redux/gameSliceSelectors'
+import { useAppDispatch, useAppSelector } from '../redux/hooks'
 import { getLettersArray } from '../utils'
 
 const Letters: React.FC = () => {
   const letters = getLettersArray()
   const dispatch = useAppDispatch()
+  const lettersGuessed = useAppSelector(selectLettersGuessed)
 
   return (
     <div className="flex flex-wrap justify-center">
-      {letters.map((letter) => (
-        <button
-          key={letter}
-          className="bg-gray-100 hover:bg-gray-200 border border-gray-400 rounded 
-    w-10 h-10 m-[3px] text-center text-[18px]"
-          onClick={() => dispatch(makeGuess(letter))}
-        >
-          {letter}
-        </button>
-      ))}
+      {letters.map((letter) => {
+        const isAlreadyGuessed = lettersGuessed.includes(letter)
+
+        return (
+          <button
+            key={letter}
+            className="bg-gray-100 hover:bg-gray-200 border border-gray-400 rounded 
+    w-10 h-10 m-[3px] text-center text-[18px] disabled:bg-gray-300 disabled:cursor-default"
+            disabled={isAlreadyGuessed}
+            onClick={() => dispatch(makeGuess(letter))}
+          >
+            {letter}
+          </button>
+        )
+      })}
     </div>
   )
 }
