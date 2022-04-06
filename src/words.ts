@@ -1,0 +1,16 @@
+export const words = [
+  'apple',
+  'banana',
+  'carrot',
+  'cherries',
+  'cucumber',
+  'grapes',
+  'kiwi',
+  'mango',
+  'melon',
+  'orange',
+  'pear',
+  'pineapple',
+  'watermelon',
+  'strawberries',
+]
