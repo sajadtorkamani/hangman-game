@@ -17,8 +17,9 @@ const Letters: React.FC = () => {
         return (
           <button
             key={letter}
-            className="bg-gray-100 hover:bg-gray-200 border border-gray-400 rounded 
-    w-10 h-10 m-[3px] text-center text-[18px] disabled:bg-gray-300 disabled:cursor-default"
+            className="bg-gray-100 hover:bg-gray-200 border border-gray-400
+              rounded w-10 h-10 m-[3px] text-center text-[18px]
+            disabled:bg-gray-300 disabled:cursor-default"
             disabled={isAlreadyGuessed}
             onClick={() => dispatch(makeGuess(letter))}
           >
