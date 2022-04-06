@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { getRandomGuessWord } from '../utils'
+import { getCharCount, getRandomGuessWord } from '../utils'
 
 export interface GameState {
   guessWord: string
@@ -27,9 +27,7 @@ export const gameSlice = createSlice({
       const guessedLetter = action.payload
 
       if (guessWord.includes(guessedLetter)) {
-        const numOccurrences = (
-          guessWord.match(new RegExp(guessedLetter, 'gi')) || []
-        ).length
+        const numOccurrences = getCharCount(guessedLetter, guessWord)
 
         state.correctGuesses.push(
           ...new Array(numOccurrences).fill(guessedLetter)

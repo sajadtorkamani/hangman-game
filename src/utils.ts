@@ -8,3 +8,7 @@ export function getRandomGuessWord(): string {
 export function getLettersArray(): string[] {
   return 'abcdefghijklmnoprstuvwxyz'.split('')
 }
+
+export function getCharCount(char: string, str: string): number {
+  return (str.match(new RegExp(char, 'gi')) || []).length
+}
