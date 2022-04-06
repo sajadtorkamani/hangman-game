@@ -1,6 +1,6 @@
 import React from 'react'
-import { selectMask } from '../redux/gameSliceSelectors'
-import { useAppSelector } from '../redux/hooks'
+import { selectMask } from '../store/gameSliceSelectors'
+import { useAppSelector } from '../store/hooks'
 
 const Mask: React.FC = () => {
   const mask = useAppSelector(selectMask)

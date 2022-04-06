@@ -1,5 +1,5 @@
 import React from 'react'
-import ScreenContainer from './ScreenContainer'
+import ScreenContainer from '../components/ScreenContainer'
 
 const GameWonScreen: React.FC = () => (
   <ScreenContainer>Game won!</ScreenContainer>

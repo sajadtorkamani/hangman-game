@@ -1,7 +1,7 @@
 import React from 'react'
-import Letters from './Letters'
-import Mask from './Mask'
-import ScreenContainer from './ScreenContainer'
+import Letters from '../components/Letters'
+import Mask from '../components/Mask'
+import ScreenContainer from '../components/ScreenContainer'
 
 const GameActiveScreen: React.FC = () => (
   <ScreenContainer>

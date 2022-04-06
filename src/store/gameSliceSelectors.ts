@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect'
-import { RootState } from './store'
+import { RootState } from '.'
 
 export const selectGuessWord = (state: RootState) => state.game.guessWord
 

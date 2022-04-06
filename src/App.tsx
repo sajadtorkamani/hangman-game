@@ -1,8 +1,8 @@
 import React from 'react'
-import GameWonScreen from './components/GameWonScreen'
-import { selectHasGuessedWord } from './redux/gameSliceSelectors'
-import { useAppSelector } from './redux/hooks'
-import GameActiveScreen from './components/GameActiveScreen'
+import GameWonScreen from './screens/GameWonScreen'
+import { selectHasGuessedWord } from './store/gameSliceSelectors'
+import { useAppSelector } from './store/hooks'
+import GameActiveScreen from './screens/GameActiveScreen'
 
 function App() {
   const hasGuessedWord = useAppSelector(selectHasGuessedWord)

@@ -1,7 +1,7 @@
 import React from 'react'
-import { makeGuess } from '../redux/gameSlice'
-import { selectLettersGuessed } from '../redux/gameSliceSelectors'
-import { useAppDispatch, useAppSelector } from '../redux/hooks'
+import { makeGuess } from '../store/gameSlice'
+import { selectLettersGuessed } from '../store/gameSliceSelectors'
+import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { getLettersArray } from '../utils'
 
 const Letters: React.FC = () => {
