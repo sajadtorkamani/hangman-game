@@ -1,4 +1,5 @@
 import { RootState } from '.'
+import { settings } from '../settings'
 
 export const selectGuessWord = (state: RootState) => state.game.guessWord
 
@@ -29,8 +30,6 @@ export const selectLettersGuessed = (state: RootState): string[] => {
   return [...correctGuesses, ...incorrectGuesses]
 }
 
-const NUM_GUESSES_ALLOWED = 5
-
 export const selectGuessesRemaining = (state: RootState): number => {
-  return NUM_GUESSES_ALLOWED - state.game.incorrectGuesses.length
+  return settings.numGuessesAllowed - state.game.incorrectGuesses.length
 }

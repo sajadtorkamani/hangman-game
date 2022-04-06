@@ -6,7 +6,7 @@ const GuessesRemaining: React.FC = () => {
   const guessesRemaining = useAppSelector(selectGuessesRemaining)
 
   return (
-    <p>
+    <p className="mb-3">
       Try to guess what the word is. You have{' '}
       <span className="font-bold">{guessesRemaining}</span> guesses
       remaining.
