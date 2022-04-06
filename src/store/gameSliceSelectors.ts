@@ -18,6 +18,11 @@ export const selectHasGuessedWord = (state: RootState): boolean => {
   return correctGuesses.length === guessWord.length
 }
 
+export const selectHasRunOutOfGuesses = (state: RootState): boolean => {
+  const guessesRemaining = selectGuessesRemaining(state)
+  return guessesRemaining <= 0
+}
+
 export const selectLettersGuessed = (state: RootState): string[] => {
   const { correctGuesses, incorrectGuesses } = state.game
 
