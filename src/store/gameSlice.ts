@@ -7,8 +7,13 @@ export interface GameState {
   incorrectGuesses: string[]
 }
 
+const guessWord = getRandomGuessWord()
+
+// Print for debugging
+console.log({ guessWord })
+
 const initialState: GameState = {
-  guessWord: getRandomGuessWord(),
+  guessWord,
   correctGuesses: [],
   incorrectGuesses: [],
 }
