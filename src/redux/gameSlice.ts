@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { getRandomGuessWord } from '../utils'
+import { RootState } from './store'
 
 export interface GameState {
   guessWord: string
@@ -28,6 +29,18 @@ export const gameSlice = createSlice({
     },
   },
 })
+
+export const selectGuessWord = (state: RootState) => state.game.guessWord
+
+export const selectMask = (state: RootState): string[] => {
+  const { guessWord, correctGuesses } = state.game
+
+  const mask = guessWord.split('').map((letter) => {
+    return correctGuesses.includes(letter) ? letter : '_'
+  })
+
+  return mask
+}
 
 // Action creators are generated for each case reducer function
 export const { makeGuess } = gameSlice.actions
