@@ -6,10 +6,11 @@ const GuessesRemaining: React.FC = () => {
   const guessesRemaining = useAppSelector(selectGuessesRemaining)
 
   return (
-    <div className="mb-3">
-      You have <span className="font-bold text-lg">{guessesRemaining}</span>{' '}
-      guesses remaining.
-    </div>
+    <p>
+      Try to guess what the word is. You have{' '}
+      <span className="font-bold">{guessesRemaining}</span> guesses
+      remaining.
+    </p>
   )
 }
 
