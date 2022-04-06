@@ -28,7 +28,6 @@ export const gameSlice = createSlice({
 
       if (guessWord.includes(guessedLetter)) {
         const numOccurrences = getCharCount(guessedLetter, guessWord)
-
         state.correctGuesses.push(
           ...new Array(numOccurrences).fill(guessedLetter)
         )
