@@ -17,9 +17,7 @@ const GameWonScreen: React.FC = () => {
   return (
     <Container>
       <Heading>Well done!</Heading>
-
-      <p className="mb-1">You correctly guessed the word:</p>
-
+      <p className="mb-2">You correctly guessed the word:</p>
       <div className="mb-5 text-6xl text-green-800">{word}</div>
 
       <Button className="mb-5" onClick={() => window.location.reload()}>

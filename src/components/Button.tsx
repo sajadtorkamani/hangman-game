@@ -8,11 +8,9 @@ type Props = React.DetailedHTMLProps<
 
 const Button: React.FC<Props> = (props) => {
   const className = classNames(
-    'bg-gray-200 border border-gray-400 rounded py-1.5 px-3 text-sm',
+    'bg-gray-200 border border-gray-400 hover:bg-gray-300 rounded py-1.5 px-3 text-sm',
     props.className
   )
-
-  console.log({ className })
 
   return <button {...props} className={className} />
 }

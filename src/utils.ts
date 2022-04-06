@@ -1,4 +1,5 @@
 import applauseSoundUrl from './assets/sounds/applause-sound.mp3'
+import crySoundUrl from './assets/sounds/cry-sound.mp3'
 import correctSoundUrl from './assets/sounds/correct-sound.mp3'
 import incorrectSoundUrl from './assets/sounds/incorrect-sound.mp3'
 
@@ -21,6 +22,9 @@ export function playSound(sound: string) {
   switch (sound) {
     case 'applause':
       new Audio(applauseSoundUrl).play()
+      return
+    case 'cry':
+      new Audio(crySoundUrl).play()
       return
     case 'correct':
       new Audio(correctSoundUrl).play()
