@@ -5,7 +5,7 @@ import Mask from '../components/Mask'
 import Container from '../components/Container'
 import Heading from '../components/Heading'
 
-const GameActiveScreen: React.FC = () => (
+const GameActive: React.FC = () => (
   <Container>
     <Heading>Hangman</Heading>
     <GuessesRemaining />
@@ -14,4 +14,4 @@ const GameActiveScreen: React.FC = () => (
   </Container>
 )
 
-export default GameActiveScreen
+export default GameActive

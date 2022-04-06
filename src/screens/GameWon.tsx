@@ -7,7 +7,7 @@ import { useAppSelector } from '../store/hooks'
 import { selectGuessWord } from '../store/gameSliceSelectors'
 import Button from '../components/Button'
 
-const GameWonScreen: React.FC = () => {
+const GameWon: React.FC = () => {
   const word = useAppSelector(selectGuessWord)
 
   useEffect(() => {
@@ -32,4 +32,4 @@ const GameWonScreen: React.FC = () => {
   )
 }
 
-export default GameWonScreen
+export default GameWon
