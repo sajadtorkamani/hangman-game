@@ -3,10 +3,11 @@ import GuessesRemaining from '../components/GuessesRemaining'
 import Letters from '../components/Letters'
 import Mask from '../components/Mask'
 import Container from '../components/Container'
+import Heading from '../components/Heading'
 
 const GameActiveScreen: React.FC = () => (
   <Container>
-    <h1 className="text-3xl mb-5">Hangman</h1>
+    <Heading>Hangman</Heading>
     <GuessesRemaining />
     <Mask />
     <Letters />
