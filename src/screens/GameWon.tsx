@@ -20,7 +20,11 @@ const GameWon: React.FC = () => {
       <p className="mb-2">You correctly guessed the word:</p>
       <div className="mb-5 text-6xl text-green-800">{guessWord?.word}</div>
 
-      <Button className="mb-5" onClick={() => window.location.reload()}>
+      <Button
+        className="mb-5"
+        onClick={() => window.location.reload()}
+        autoFocus
+      >
         Play again
       </Button>
 

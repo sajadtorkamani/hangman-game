@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { makeGuess } from '../store/gameSlice'
 import { selectLettersGuessed } from '../store/gameSliceSelectors'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
@@ -8,6 +8,23 @@ const Letters: React.FC = () => {
   const letters = getLettersArray()
   const dispatch = useAppDispatch()
   const lettersGuessed = useAppSelector(selectLettersGuessed)
+
+  const handleKeyPress = ({ key: letter }: KeyboardEvent) => {
+    const isAlreadyGuessed = lettersGuessed.includes(letter)
+    
+    if (/[A-Za-z]/.test(letter) && !isAlreadyGuessed) {
+      dispatch(makeGuess(letter))
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyPress)
+
+    // Stop listening for key down when component is unmounted
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress)
+    }
+  })
 
   return (
     <div className="flex flex-wrap justify-center">

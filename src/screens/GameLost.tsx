@@ -20,7 +20,11 @@ const GameLost: React.FC = () => {
       <p className="mb-2">You've run out of guesses. The correct word was:</p>
       <div className="mb-5 text-6xl text-red-800">{guessWord?.word}</div>
 
-      <Button className="mb-5" onClick={() => window.location.reload()}>
+      <Button
+        className="mb-5"
+        onClick={() => window.location.reload()}
+        autoFocus
+      >
         Play again
       </Button>
 
