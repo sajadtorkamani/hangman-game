@@ -5,12 +5,10 @@ import Mask from '../components/Mask'
 import Container from '../components/Container'
 import Heading from '../components/Heading'
 import { useGetWordQuery } from '../services/wordApi'
+import CategoryHint from '../components/CategoryHint'
 
 const GameActive: React.FC = () => {
-  // On load, fetch word from API
-  const { data, error, isLoading } = useGetWordQuery()
-
-  console.log({ data })
+  const { isLoading } = useGetWordQuery()
 
   return (
     <Container>
@@ -20,6 +18,7 @@ const GameActive: React.FC = () => {
       ) : (
         <>
           <GuessesRemaining />
+          <CategoryHint />
           <Mask />
           <Letters />
         </>

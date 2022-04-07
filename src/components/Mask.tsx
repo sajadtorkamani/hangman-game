@@ -6,7 +6,7 @@ const Mask: React.FC = () => {
   const mask = useAppSelector(selectMask)
 
   return (
-    <div className="mb-8 flex justify-center">
+    <div className="mb-8 flex flex-wrap justify-center">
       {mask.map((letter, index) => (
         <div key={index} className="text-[34px] mx-2">
           {letter}

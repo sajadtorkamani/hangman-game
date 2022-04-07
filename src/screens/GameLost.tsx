@@ -8,7 +8,7 @@ import { useAppSelector } from '../store/hooks'
 import { playSound } from '../utils'
 
 const GameLost: React.FC = () => {
-  const word = useAppSelector(selectGuessWord)
+  const guessWord = useAppSelector(selectGuessWord)
 
   useEffect(() => {
     playSound('cry')
@@ -18,16 +18,13 @@ const GameLost: React.FC = () => {
     <Container>
       <Heading>Unlucky!</Heading>
       <p className="mb-2">You've run out of guesses. The correct word was:</p>
-      <div className="mb-5 text-6xl text-red-800">{word}</div>
+      <div className="mb-5 text-6xl text-red-800">{guessWord?.word}</div>
 
       <Button className="mb-5" onClick={() => window.location.reload()}>
         Play again
       </Button>
 
-      <img
-        src={sadnessImageUrl}
-        alt="Unlucky. You run out of guesses"
-      />
+      <img src={sadnessImageUrl} alt="Unlucky. You run out of guesses" />
     </Container>
   )
 }

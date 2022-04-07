@@ -8,7 +8,7 @@ import { selectGuessWord } from '../store/gameSliceSelectors'
 import Button from '../components/Button'
 
 const GameWon: React.FC = () => {
-  const word = useAppSelector(selectGuessWord)
+  const guessWord = useAppSelector(selectGuessWord)
 
   useEffect(() => {
     playSound('applause')
@@ -18,7 +18,7 @@ const GameWon: React.FC = () => {
     <Container>
       <Heading>Well done!</Heading>
       <p className="mb-2">You correctly guessed the word:</p>
-      <div className="mb-5 text-6xl text-green-800">{word}</div>
+      <div className="mb-5 text-6xl text-green-800">{guessWord?.word}</div>
 
       <Button className="mb-5" onClick={() => window.location.reload()}>
         Play again

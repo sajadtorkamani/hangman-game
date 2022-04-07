@@ -8,8 +8,7 @@ const GuessesRemaining: React.FC = () => {
   return (
     <p className="mb-3">
       Try to guess what the word is. You have{' '}
-      <span className="font-bold">{guessesRemaining}</span> guesses
-      remaining.
+      <span className="font-bold">{guessesRemaining}</span> guesses remaining.
     </p>
   )
 }
