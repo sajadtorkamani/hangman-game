@@ -1,7 +1,7 @@
 import React from 'react'
 import GameWon from './screens/GameWon'
 import {
-  selectHasGuessedWord,
+  selectHasGuessedAllLetters,
   selectHasRunOutOfGuesses,
 } from './store/gameSliceSelectors'
 import { useAppSelector } from './store/hooks'
@@ -9,7 +9,7 @@ import GameActive from './screens/GameActive'
 import GameLost from './screens/GameLost'
 
 function App() {
-  const hasGuessedWord = useAppSelector(selectHasGuessedWord)
+  const hasGuessedWord = useAppSelector(selectHasGuessedAllLetters)
   const hasRunOutGuesses = useAppSelector(selectHasRunOutOfGuesses)
 
   if (hasGuessedWord) return <GameWon />

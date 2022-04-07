@@ -4,14 +4,17 @@ import { settings } from '../settings'
 export const selectGuessWord = (state: RootState) => state.game.guessWord
 
 export const selectMask = (state: RootState): string[] => {
-  const guessWord = state.game.guessWord
-  const correctGuesses = state.game.correctGuesses
+  const { guessWord, correctGuesses } = state.game
 
   if (!guessWord) {
-    throw new Error('Guess word not initialized yet.')
+    throw new Error('Tried accessing guess word before it was initialized.')
   }
 
   const mask = guessWord.word.split('').map((letter) => {
+    if (letter === ' ') {
+      return ' '
+    }
+
     return correctGuesses.includes(letter) ? letter : '_'
   })
 
@@ -19,9 +22,16 @@ export const selectMask = (state: RootState): string[] => {
 }
 
 export const selectHasGuessedWord = (state: RootState): boolean => {
-  const { guessWord: word, correctGuesses } = state.game
+  const { guessWord, correctGuesses } = state.game
 
-  return word !== null && correctGuesses.length === word.word.length
+  if (guessWord === null) {
+    return false
+  }
+
+  // The user doesn't have to guess the space characters.
+  const guessWordWithoutSpaces = guessWord.word.replaceAll(' ', '')
+  
+  return correctGuesses.length === guessWordWithoutSpaces.length
 }
 
 export const selectHasRunOutOfGuesses = (state: RootState): boolean => {
