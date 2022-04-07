@@ -3,12 +3,12 @@ import Container from '../components/Container'
 import Heading from '../components/Heading'
 import { playSound } from '../utils'
 import celebrationImageUrl from '../assets/images/celebration.jpeg'
-import { useAppSelector } from '../store/hooks'
+import { useStoreSelector } from '../store/hooks'
 import { selectGuessWord } from '../store/gameSliceSelectors'
 import Button from '../components/Button'
 
 const GameWon: React.FC = () => {
-  const guessWord = useAppSelector(selectGuessWord)
+  const guessWord = useStoreSelector(selectGuessWord)
 
   useEffect(() => {
     playSound('applause')

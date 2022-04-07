@@ -19,7 +19,7 @@ export function getCharCount(char: string, str: string): number {
   return (str.match(new RegExp(char, 'gi')) || []).length
 }
 
-export function playSound(sound: string) {
+export function playSound(sound: string): void {
   switch (sound) {
     case 'applause':
       new Audio(applauseSoundUrl).play()
@@ -36,4 +36,8 @@ export function playSound(sound: string) {
     default:
       throw new Error(`Sound name is not recognized: ${sound}`)
   }
+}
+
+export function isDevelopment(): boolean {
+  return process.env.NODE_ENV === 'development'
 }

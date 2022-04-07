@@ -1,9 +1,9 @@
 import React from 'react'
 import { selectMask } from '../store/gameSliceSelectors'
-import { useAppSelector } from '../store/hooks'
+import { useStoreSelector } from '../store/hooks'
 
 const Mask: React.FC = () => {
-  const mask = useAppSelector(selectMask)
+  const mask = useStoreSelector(selectMask)
 
   return (
     <div className="mb-8 flex flex-wrap justify-center">

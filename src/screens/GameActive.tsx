@@ -6,9 +6,14 @@ import Container from '../components/Container'
 import Heading from '../components/Heading'
 import { useGetWordQuery } from '../services/wordApi'
 import CategoryHint from '../components/CategoryHint'
+import { isDevelopment } from '../utils'
 
 const GameActive: React.FC = () => {
-  const { isLoading } = useGetWordQuery()
+  const { isLoading, data: guessWord } = useGetWordQuery()
+
+  if (isDevelopment() && guessWord) {
+    console.log(`Guess word: ${guessWord?.word}`)
+  }
 
   return (
     <Container>

@@ -4,11 +4,11 @@ import Container from '../components/Container'
 import Heading from '../components/Heading'
 import sadnessImageUrl from '../assets/images/sadness.jpeg'
 import { selectGuessWord } from '../store/gameSliceSelectors'
-import { useAppSelector } from '../store/hooks'
+import { useStoreSelector } from '../store/hooks'
 import { playSound } from '../utils'
 
 const GameLost: React.FC = () => {
-  const guessWord = useAppSelector(selectGuessWord)
+  const guessWord = useStoreSelector(selectGuessWord)
 
   useEffect(() => {
     playSound('cry')
