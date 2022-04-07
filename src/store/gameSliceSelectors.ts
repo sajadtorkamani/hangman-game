@@ -21,7 +21,7 @@ export const selectMask = (state: RootState): string[] => {
   return mask
 }
 
-export const selectHasGuessedWord = (state: RootState): boolean => {
+export const selectHasGuessedAllLetters = (state: RootState): boolean => {
   const { guessWord, correctGuesses } = state.game
 
   if (guessWord === null) {
@@ -30,7 +30,7 @@ export const selectHasGuessedWord = (state: RootState): boolean => {
 
   // The user doesn't have to guess the space characters.
   const guessWordWithoutSpaces = guessWord.word.replaceAll(' ', '')
-  
+
   return correctGuesses.length === guessWordWithoutSpaces.length
 }
 
