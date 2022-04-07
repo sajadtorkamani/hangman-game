@@ -1,19 +1,16 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { getCharCount, getRandomGuessWord, playSound } from '../utils'
+import { wordApi } from '../services/wordApi'
+import { Word } from '../types'
+import { getCharCount, playSound } from '../utils'
 
 export interface GameState {
-  guessWord: string
+  guessWord: Word | null
   correctGuesses: string[]
   incorrectGuesses: string[]
 }
 
-const guessWord = getRandomGuessWord()
-
-// Print for debugging
-console.log({ guessWord })
-
 const initialState: GameState = {
-  guessWord,
+  guessWord: null,
   correctGuesses: [],
   incorrectGuesses: [],
 }
@@ -23,11 +20,15 @@ export const gameSlice = createSlice({
   initialState,
   reducers: {
     makeGuess: (state, action: PayloadAction<string>) => {
-      const { guessWord } = state
+      const guessWord = state.guessWord
       const guessedLetter = action.payload
 
-      if (guessWord.includes(guessedLetter)) {
-        const numOccurrences = getCharCount(guessedLetter, guessWord)
+      if (guessWord === null) {
+        throw new Error('Guess word not initialized yet.')
+      }
+
+      if (guessWord.word.includes(guessedLetter)) {
+        const numOccurrences = getCharCount(guessedLetter, guessWord.word)
         state.correctGuesses.push(
           ...new Array(numOccurrences).fill(guessedLetter)
         )
@@ -37,6 +38,14 @@ export const gameSlice = createSlice({
         playSound('incorrect')
       }
     },
+  },
+  extraReducers: (builder) => {
+    builder.addMatcher(
+      wordApi.endpoints.getWord.matchFulfilled,
+      (state, { payload }) => {
+        state.guessWord = payload
+      }
+    )
   },
 })
 

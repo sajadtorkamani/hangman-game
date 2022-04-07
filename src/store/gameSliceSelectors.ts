@@ -4,9 +4,14 @@ import { settings } from '../settings'
 export const selectGuessWord = (state: RootState) => state.game.guessWord
 
 export const selectMask = (state: RootState): string[] => {
-  const { guessWord, correctGuesses } = state.game
+  const guessWord = state.game.guessWord
+  const correctGuesses = state.game.correctGuesses
 
-  const mask = guessWord.split('').map((letter) => {
+  if (!guessWord) {
+    throw new Error('Guess word not initialized yet.')
+  }
+
+  const mask = guessWord.word.split('').map((letter) => {
     return correctGuesses.includes(letter) ? letter : '_'
   })
 
@@ -14,9 +19,9 @@ export const selectMask = (state: RootState): string[] => {
 }
 
 export const selectHasGuessedWord = (state: RootState): boolean => {
-  const { guessWord, correctGuesses } = state.game
+  const { guessWord: word, correctGuesses } = state.game
 
-  return correctGuesses.length === guessWord.length
+  return word !== null && correctGuesses.length === word.word.length
 }
 
 export const selectHasRunOutOfGuesses = (state: RootState): boolean => {
