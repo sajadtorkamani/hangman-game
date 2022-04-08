@@ -9,10 +9,10 @@ import GameActive from './screens/GameActive'
 import GameLost from './screens/GameLost'
 
 function App() {
-  const hasGuessedWord = useStoreSelector(selectHasGuessedAllLetters)
+  const hasGuessedAllLetters = useStoreSelector(selectHasGuessedAllLetters)
   const hasRunOutGuesses = useStoreSelector(selectHasRunOutOfGuesses)
 
-  if (hasGuessedWord) return <GameWon />
+  if (hasGuessedAllLetters) return <GameWon />
   if (hasRunOutGuesses) return <GameLost />
   return <GameActive />
 }
