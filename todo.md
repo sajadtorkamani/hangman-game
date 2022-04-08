@@ -1,6 +1,5 @@
 # Todo
 
-- Allow user to guess using keyboard
 - Add Sentry to track front-end and API errors.
 - Handle errors gracefully (e.g., when using `useGetWordQuery`)
   - Network errors (e.g., API is down, API returned response that JS didn't expect.)
