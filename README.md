@@ -25,6 +25,6 @@ npm start
 
 ## Deployment
 
-Pushes to the `master` branch are automatically deployed to [hangman-game.sajadtorkamani.com](hangman-game.sajadtorkamani.com) via Netlify.
+Pushes to the `master` branch are automatically deployed to [hangman-game.sajadtorkamani.com](https://hangman-game.sajadtorkamani.com/) via Netlify.
 
 Make sure the env variables specified in `.env.example` are set in the Netlify deploy settings (Build & Deploy > Environment).
