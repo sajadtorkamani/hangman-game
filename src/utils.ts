@@ -2,14 +2,6 @@ import applauseSoundUrl from './assets/sounds/applause-sound.mp3'
 import crySoundUrl from './assets/sounds/cry-sound.mp3'
 import correctSoundUrl from './assets/sounds/correct-sound.mp3'
 import incorrectSoundUrl from './assets/sounds/incorrect-sound.mp3'
-import { settings } from './settings'
-
-export function getRandomGuessWord(): string {
-  const words = settings.words
-  const randomIndex = Math.floor(Math.random() * words.length)
-
-  return words[randomIndex]
-}
 
 export function getLettersArray(): string[] {
   return 'abcdefghijklmnoprstuvwxyz'.split('')
