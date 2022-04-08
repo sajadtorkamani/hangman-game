@@ -1,5 +1,4 @@
 import { RootState } from '.'
-import { settings } from '../settings'
 
 export const selectGuessWord = (state: RootState) => state.game.guessWord
 
