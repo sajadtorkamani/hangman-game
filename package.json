@@ -22,6 +22,7 @@
     "@types/react-redux": "^7.1.23",
     "classnames": "^2.3.1",
     "lodash": "^4.17.21",
+    "nth-check": ">=2.0.1",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^7.2.8",
