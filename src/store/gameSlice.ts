@@ -1,16 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { wordApi } from '../services/wordApi'
 import { Word } from '../types'
 import { getCharCount, playSound } from '../utils'
 
 export interface GameState {
-  guessWord: Word | null
+  guessWord: Word,
   correctGuesses: string[]
   incorrectGuesses: string[]
 }
 
 const initialState: GameState = {
-  guessWord: null,
+  guessWord: { word: 'Sajad', category: 'Misc' },
   correctGuesses: [],
   incorrectGuesses: [],
 }
@@ -38,15 +37,7 @@ export const gameSlice = createSlice({
         playSound('incorrect')
       }
     },
-  },
-  extraReducers: (builder) => {
-    builder.addMatcher(
-      wordApi.endpoints.getWord.matchFulfilled,
-      (state, { payload }) => {
-        state.guessWord = payload
-      }
-    )
-  },
+  }
 })
 
 // Action creators are generated for each case reducer function

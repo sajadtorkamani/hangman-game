@@ -4,11 +4,6 @@ export const selectGuessWord = (state: RootState) => state.game.guessWord
 
 export const selectMask = (state: RootState): string[] => {
   const { guessWord, correctGuesses } = state.game
-
-  if (!guessWord) {
-    throw new Error('Tried accessing guess word before it was initialized.')
-  }
-
   const mask = guessWord.word.split('').map((letter) => {
     if (letter === ' ') {
       return ' '

@@ -4,30 +4,24 @@ import Letters from '../components/Letters'
 import Mask from '../components/Mask'
 import Container from '../components/Container'
 import Heading from '../components/Heading'
-import { useGetWordQuery } from '../services/wordApi'
 import CategoryHint from '../components/CategoryHint'
 import { isDevelopment } from '../utils'
 
 const GameActive: React.FC = () => {
-  const { isLoading, data: guessWord } = useGetWordQuery()
+  const guessWord = 'Sajad'
 
-  if (isDevelopment() && guessWord) {
-    console.log(`Guess word: ${guessWord?.word}`)
+  if (isDevelopment()) {
+    console.log(`Guess word: ${guessWord}`)
   }
 
   return (
     <Container>
       <Heading>Hangman</Heading>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <>
-          <GuessesRemaining />
-          <CategoryHint />
-          <Mask />
-          <Letters />
-        </>
-      )}
+
+      <GuessesRemaining />
+      <CategoryHint />
+      <Mask />
+      <Letters />
     </Container>
   )
 }
