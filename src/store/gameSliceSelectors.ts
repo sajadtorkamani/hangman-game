@@ -2,7 +2,7 @@ import { RootState } from '.'
 
 export const selectGuessWord = (state: RootState) => state.game.guessWord
 
-export const selectMask = (state: RootState): string[] => {
+export const maskSelector = (state: RootState): string[] => {
   const { guessWord, correctGuesses } = state.game
   const mask = guessWord.word.split('').map((letter) => {
     if (letter === ' ') {
@@ -15,7 +15,7 @@ export const selectMask = (state: RootState): string[] => {
   return mask
 }
 
-export const selectHasGuessedAllLetters = (state: RootState): boolean => {
+export const hasGuessedAllLettersSelector = (state: RootState): boolean => {
   const { guessWord, correctGuesses } = state.game
 
   if (guessWord === null) {
@@ -28,18 +28,18 @@ export const selectHasGuessedAllLetters = (state: RootState): boolean => {
   return correctGuesses.length === guessWordWithoutSpaces.length
 }
 
-export const selectHasRunOutOfGuesses = (state: RootState): boolean => {
-  const guessesRemaining = selectGuessesRemaining(state)
+export const hasRunOutOfGuessesSelector = (state: RootState): boolean => {
+  const guessesRemaining = numGuessesRemainingSelector(state)
   return guessesRemaining <= 0
 }
 
-export const selectLettersGuessed = (state: RootState): string[] => {
+export const lettersGuessedSelector = (state: RootState): string[] => {
   const { correctGuesses, incorrectGuesses } = state.game
 
   return [...correctGuesses, ...incorrectGuesses]
 }
 
-export const selectGuessesRemaining = (state: RootState): number => {
+export const numGuessesRemainingSelector = (state: RootState): number => {
   const NUM_GUESSES_ALLOWED = 6
   return NUM_GUESSES_ALLOWED - state.game.incorrectGuesses.length
 }

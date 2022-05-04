@@ -1,9 +1,9 @@
 import React from 'react'
-import { selectGuessesRemaining } from '../store/gameSliceSelectors'
+import { numGuessesRemainingSelector } from '../store/gameSliceSelectors'
 import { useStoreSelector } from '../store/hooks'
 
 const GuessesRemaining: React.FC = () => {
-  const guessesRemaining = useStoreSelector(selectGuessesRemaining)
+  const guessesRemaining = useStoreSelector(numGuessesRemainingSelector)
 
   return (
     <p className="mb-3">

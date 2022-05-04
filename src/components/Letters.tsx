@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react'
 import { makeGuess } from '../store/gameSlice'
-import { selectLettersGuessed } from '../store/gameSliceSelectors'
+import { lettersGuessedSelector } from '../store/gameSliceSelectors'
 import { useStoreDispatch, useStoreSelector } from '../store/hooks'
 import { getLettersArray } from '../utils'
 
 const Letters: React.FC = () => {
   const letters = getLettersArray()
   const dispatch = useStoreDispatch()
-  const lettersGuessed = useStoreSelector(selectLettersGuessed)
+  const lettersGuessed = useStoreSelector(lettersGuessedSelector)
 
   const handleKeyPress = ({ key: letter }: KeyboardEvent) => {
     const isAlreadyGuessed = lettersGuessed.includes(letter)
