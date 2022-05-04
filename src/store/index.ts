@@ -3,9 +3,7 @@ import { setupListeners } from '@reduxjs/toolkit/query'
 import { gameReducer } from './gameSlice'
 
 export const store = configureStore({
-  reducer: {
-    game: gameReducer,
-  },
+  reducer: { game: gameReducer },
 })
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors
