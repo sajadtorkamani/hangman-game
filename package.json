@@ -21,6 +21,7 @@
     "@types/react-dom": "^17.0.14",
     "@types/react-redux": "^7.1.23",
     "classnames": "^2.3.1",
+    "lodash": "^4.17.21",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-redux": "^7.2.8",
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.0",
+    "@types/lodash": "^4.14.182",
     "autoprefixer": "^10.4.4",
     "postcss": "^8.4.12",
     "prettier": "^2.6.2",

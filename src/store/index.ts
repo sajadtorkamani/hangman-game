@@ -4,8 +4,8 @@ import { gameReducer } from './gameSlice'
 
 export const store = configureStore({
   reducer: {
-    game: gameReducer
-  }
+    game: gameReducer,
+  },
 })
 
 // optional, but required for refetchOnFocus/refetchOnReconnect behaviors

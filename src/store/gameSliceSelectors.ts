@@ -1,6 +1,6 @@
 import { RootState } from '.'
 
-export const selectGuessWord = (state: RootState) => state.game.guessWord
+export const guessWordSelector = (state: RootState) => state.game.guessWord
 
 export const maskSelector = (state: RootState): string[] => {
   const { guessWord, correctGuesses } = state.game

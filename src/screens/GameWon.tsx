@@ -4,11 +4,11 @@ import Heading from '../components/Heading'
 import { playSound } from '../utilities'
 import celebrationImageUrl from '../assets/images/celebration.jpeg'
 import { useStoreSelector } from '../store/hooks'
-import { selectGuessWord } from '../store/gameSliceSelectors'
+import { guessWordSelector } from '../store/gameSliceSelectors'
 import Button from '../components/Button'
 
 const GameWon: React.FC = () => {
-  const guessWord = useStoreSelector(selectGuessWord)
+  const guessWord = useStoreSelector(guessWordSelector)
 
   useEffect(() => {
     playSound('applause')
