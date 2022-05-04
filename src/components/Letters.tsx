@@ -2,7 +2,7 @@ import React from 'react'
 import { makeGuess } from '../store/gameSlice'
 import { lettersGuessedSelector } from '../store/gameSliceSelectors'
 import { useStoreDispatch, useStoreSelector } from '../store/hooks'
-import { getLettersArray } from '../utils'
+import { getLettersArray } from '../utilities'
 
 const Letters: React.FC = () => {
   const letters = getLettersArray()

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import Container from '../components/Container'
 import Heading from '../components/Heading'
-import { playSound } from '../utils'
+import { playSound } from '../utilities'
 import celebrationImageUrl from '../assets/images/celebration.jpeg'
 import { useStoreSelector } from '../store/hooks'
 import { selectGuessWord } from '../store/gameSliceSelectors'

@@ -5,7 +5,7 @@ import Mask from '../components/Mask'
 import Container from '../components/Container'
 import Heading from '../components/Heading'
 import CategoryHint from '../components/CategoryHint'
-import { isDevelopment } from '../utils'
+import { isDevelopment } from '../utilities'
 
 const GameActive: React.FC = () => {
   const guessWord = 'Sajad'

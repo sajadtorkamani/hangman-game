@@ -5,7 +5,7 @@ import Heading from '../components/Heading'
 import sadnessImageUrl from '../assets/images/sadness.jpeg'
 import { selectGuessWord } from '../store/gameSliceSelectors'
 import { useStoreSelector } from '../store/hooks'
-import { playSound } from '../utils'
+import { playSound } from '../utilities'
 
 const GameLost: React.FC = () => {
   const guessWord = useStoreSelector(selectGuessWord)

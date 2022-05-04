@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Word } from '../types'
-import { getCharCount, playSound } from '../utils'
+import { getCharCount, playSound } from '../utilities'
 
 export interface GameState {
   guessWord: Word,
