@@ -40,6 +40,6 @@ export const lettersGuessedSelector = (state: RootState): string[] => {
 }
 
 export const numGuessesRemainingSelector = (state: RootState): number => {
-  const NUM_GUESSES_ALLOWED = 6
+  const NUM_GUESSES_ALLOWED = 8
   return NUM_GUESSES_ALLOWED - state.game.incorrectGuesses.length
 }
